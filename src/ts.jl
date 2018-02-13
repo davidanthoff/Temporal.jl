@@ -35,6 +35,11 @@ TS{V,T}(v::V, t::T) = TS{V,T}([v], [t], [:A])
 TS{V}(v::AbstractArray{V}) = TS{V,Date}(v, autoidx(size(v,1)), autocol(1:size(v,2)))
 TS() = TS{Float64,Date}(Matrix{Float64}(0,0), Date[], Symbol[])
 
+#  TS{V}(v::AbstractArray{Union{V,Missing}}, t, f) = TS(Array{V}(v), t, f)
+#  TS{V<:Union}(v::AbstractArray{V}, t, f) = TS(Array{V.a}(v), t, f)
+#  TS{V<:Union}(v::AbstractArray{V}, t) = TS(Array{V.a}(v), t)
+#  TS{V<:Union}(v::AbstractArray{V}) = TS(Array{V.a}(v))
+
 # Conversions ------------------------------------------------------------------
 convert(::Type{TS{Float64}}, x::TS{Bool}) = TS{Float64}(map(Float64, x.values), x.index, x.fields)
 convert(::Type{TS{Int}}, x::TS{Bool}) = TS{Int}(map(Int, x.values), x.index, x.fields)
@@ -60,7 +65,5 @@ last(x::TS) = x[end]
 endof(x::TS) = endof(x.values)
 ndims(::TS) = 2
 float(x::TS) = ts(float(x.values), x.index, x.fields)
-eltype(x::TS) = eltype(x.values)
+eltype(x::TS) = eltype(x.values).a
 copy(x::TS) = TS(x.values, x.index, x.fields)
-# round(V::Type, x::TS) = TS(round(V, x.values), x.index, x.fields)
-

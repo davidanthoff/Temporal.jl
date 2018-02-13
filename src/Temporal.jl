@@ -15,7 +15,7 @@ export
     nanrows, nancols, dropnan, fillnan, fillnan!, ffill!, bfill!, linterp!, interpolate,
     # Operations
     numfun, arrfun, operation,
-    ones, zeros, trues, falses, isnan, countnz, sign, round,
+    rand, randn, ones, zeros, trues, falses, isnan, countnz, sign, round,
     sum, mean, maximum, minimum, prod, cumsum, cumprod, diff, lag, nans,
     shift, pct_change,
     # Aggregation

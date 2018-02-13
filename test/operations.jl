@@ -23,11 +23,6 @@ using Base.Test, Base.Dates, Temporal
         @test length(randn(TS,N)) == N
         @test length(randn(TS,N,K)) == N*K
         @test length(randn(TS,(N,K))) == N*K
-        x = ts(-1.0 .* rand(N))
-        y = +x
-        @test all(y.values .<= 0.0)
-        y = -x
-        @test all(y.values .>= 0.0)
     end
     @testset "Logical" begin
         @test x1 == x2
