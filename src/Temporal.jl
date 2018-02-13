@@ -12,7 +12,7 @@ export
     # Merging/Joining
     ojoin, ijoin, ljoin, rjoin, merge, hcat, vcat, head, tail,
     # Missing Data
-    nanrows, nancols, dropnan, fillnan, fillnan!, ffill!, bfill!, linterp!,
+    nanrows, nancols, dropnan, fillnan, fillnan!, ffill!, bfill!, linterp!, interpolate,
     # Operations
     numfun, arrfun, operation,
     ones, zeros, trues, falses, isnan, countnz, sign, round,
