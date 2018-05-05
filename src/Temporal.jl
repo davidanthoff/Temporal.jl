@@ -49,5 +49,6 @@ include("slice.jl")
 include("io.jl")
 include("ohlc.jl")
 include("viz.jl")
+include("tabletraits.jl")
 
 end
